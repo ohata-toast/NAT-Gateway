@@ -32,4 +32,4 @@ Create an NAT gateway by setting the items below.
 
 
 ### Configure a Network ACL
-If you configure a network ACL for the VPC of the NAT gateway in the Korea (Pyeongchon) region, it will also be applied to the NAT gateway. [How to configure a network ACL](https://docs.toast.com/ko/Network/Network%20ACL/ko/overview/)
+If you configure a network ACL for the VPC of the NAT gateway in the Korea (Pyeongchon) region, it will also be applied to the NAT gateway. [How to configure a network ACL](https://docs.toast.com/en/Network/Network%20ACL/en/overview/)
