@@ -1,14 +1,14 @@
-## Network > NAT Gateway > 개요
-NAT 게이트웨이를 이용하면 인터넷 게이트웨이가 연결되지 않은 인스턴스들이 인터넷에 액세스할 수 있습니다. 하지만 인터넷에서 이 인스턴스들로 연결을 시작할 수는 없습니다.
-한국(판교), 한국(평촌) 리전에서만 제공하는 기능입니다.
+## Network > NAT Gateway > Overview
+An NAT gateway allows instances that is not connected to an internet gateway to access the internet. However, you cannot initiate connections to these instances from the internet.
+This function is only available in the Korea (Pangyo) and Korea (Pyeongchon) regions.
 
 
-### 주요 기능
-* 인터넷 게이트웨이에 연결되지 않은 인스턴스들이 NAT 게이트웨이의 플로팅 IP로 인터넷에 액세스할 수 있습니다.
-* 라우팅 테이블에서 특정 CIDR에 대해 NAT 게이트웨이를 게이트웨이로 지정하는 라우트를 설정하는 경우, 이 라우팅 테이블에 연결된 인스턴스들로부터 설정된 CIDR을 목적지로 하는 패킷의 소스 IP는 NAT 게이트웨이의 플로팅 IP로 변환됩니다.
-* 하나의 NAT 게이트웨이는 동일 VPC 내의 여러 라우팅 테이블에서 게이트웨이로 지정할 수 있습니다.
-* 하나의 라우팅 테이블에서 목적지 CIDR을 구분하여 다수의 NAT 게이트웨이를 게이트웨이로 지정할 수 있습니다.
-* NAT 게이트웨이 주소로 인스턴스에 액세스할 수 없습니다.
-* 특정 소스 IP에 대해서만 내부 접근을 허용하는 방화벽 정책을 운영하는 경우 NAT 게이트웨이의 플로팅 IP를 지정하여 정책 설정을 할 수 있습니다. 
-* 외부에서 NAT 게이트웨이 주소로 연결을 시작하려는 트래픽은 차단됩니다.
-* 한국(평촌) 리전에는 네트워크 ACL을 적용할 수 있습니다.
+### Main Features
+* Instances that are not connected to an internet gateway can access the internet with the floating IP of an NAT gateway.
+* When you configure a route specifying an NAT gateway as a gateway for a specific CIDR in the routing table, the source IP of packets destined for the configured CIDR from the instances connected to this routing table is converted to the floating IP of the NAT gateway.
+* A single NAT gateway can be specified as a gateway in multiple routing tables in the same VPC.
+* You can specify multiple NAT gateways as a gateway in a single routing table by identifying the destination CIDR.
+* You cannot access instances with an NAT gateway address.
+* If you are operating a firewall policy that allows internal access only to a specific source IP, you can configure the policy by specifying the floating IP of the NAT gateway. 
+* Traffic that attempts a connection to an NAT gateway address from the outside is blocked.
+* Network ACLs can be applied to the Korea (Pyeongchon) region.
