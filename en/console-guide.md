@@ -1,35 +1,35 @@
-## Network > NAT Gateway > 콘솔 사용 가이드
-콘솔에서 NAT Gateway 서비스를 사용하는 방법을 설명합니다.
+## Network > NAT Gateway > Console User Guide
+This guide describes how to use the NAT Gateway service from the console.
 
-## NAT 게이트웨이 
-한국(판교), 한국(평촌) 리전에만 제공하는 기능입니다.
+## NAT Gateway 
+This function is only available in the Korea (Pangyo) and Korea (Pyeongchon) regions.
 
-### NAT 게이트웨이 생성
-아래 항목을 설정하여 NAT 게이트웨이를 생성합니다.
+### Create an NAT Gateway
+Create an NAT gateway by setting the items below.
 
-| 항목      | 설명                                                         |
+| Item      | Description                                                         |
 | --------|------------------------------------------------------------ |
-| 이름      | NAT 게이트웨이 이름을 지정할 수 있습니다. |
-| VPC      | NAT 게이트웨이를 생성할 VPC를 지정합니다. |
-| 서브넷     | 선택한 VPC의 서브넷 중에 인터넷 게이트웨이가 연결되어 있는 라우팅 테이블에 연결된 서브넷을 지정합니다. 조건에 만족하지 않는 서브넷으로는 NAT 게이트웨이를 생성할 수 없습니다.  |
-| 플로팅 IP  | NAT 게이트웨이에 할당할 플로팅 IP를 지정합니다. 인터넷에 액세스할 때 이 IP가 소스 IP로 변환됩니다. |
-| 설명      | NAT 게이트웨이에 대한 설명을 추가할 수 있습니다.  |
+| Name      | You can specify the name of the NAT gateway. |
+| VPC      | Specify the VPC in which to create the NAT gateway. |
+| Subnet     | Specify a subnet among the subnets of the selected VPC, which is associated with the routing table with which the internet gateway is associated. You cannot create an NAT gateway with a subnet that does not satisfy the condition.  |
+| Floating IP  | Specify the floating IP to assign to the NAT gateway. When accessing the internet, this IP is translated to a source IP. |
+| Description      | You can add a description for the NAT gateway.  |
 
-* NAT 게이트웨이의 VPC, 서브넷, 플로팅 IP는 변경할 수 없습니다.
-* NAT 게이트웨이에 설정된 플로팅 IP는 연결을 해제할 수 없습니다. NAT 게이트웨이가 삭제되면 자동으로 연결이 해제됩니다.
-* NAT 게이트웨이 주소로 인스턴스에 액세스할 수 없습니다.
-* 외부에서 NAT 게이트웨이 주소로 연결을 시작하려는 트래픽은 차단됩니다.
-* 한국(평촌) 리전에는 네트워크 ACL이 적용됩니다.
-* NAT 게이트웨이의 Quota는 3개입니다.
+* You cannot change the VPC, subnet, and floating IP of an NAT gateway.
+* A floating IP set on an NAT gateway cannot be disassociated. When the NAT gateway is deleted, the floating IP is automatically disassociated.
+* You cannot access instances with an NAT gateway address.
+* Traffic that attempts a connection to an NAT gateway address from the outside is blocked.
+* Network ACLs are applied to the Korea (Pyeongchon) region.
+* The quota for NAT gateway is 3.
 
-### 라우트 설정
-* 라우팅 테이블에서 특정 CIDR에 대해 NAT 게이트웨이를 게이트웨이로 지정하는 라우트를 설정하면, NAT 게이트웨이를 사용하게 됩니다.
-* NAT 게이트웨이를 라우트로 설정한 라우팅 테이블에 연결된 인스턴스들에서 라우트에 설정된 CIDR을 목적지로 하는 경우, 패킷의 소스 IP가 NAT 게이트웨이의 플로팅 IP로 변환됩니다.
-* 하나의 NAT 게이트웨이는 동일 VPC 내의 여러 라우팅 테이블에서 게이트웨이로 지정할 수 있습니다.
-* NAT 게이트웨이 설정 시 지정한 서브넷과 다른 서브넷에 연결된 라우팅 테이블도 NAT 게이트웨이를 게이트웨이로 지정할 수 있습니다.
-* 하나의 라우팅 테이블에서 목적지 CIDR을 구분하여 다수의 NAT 게이트웨이를 게이트웨이로 지정할 수 있습니다.
-* 라우트 설정에서 IP Prefix 0 (/0)이 아닌 라우트 대상 CIDR에 대해 NAT 게이트웨이를 게이트웨이로 설정하면, 인스턴스에 플로팅 IP가 설정되어 있더라도 NAT 게이트웨이로 통신됩니다.
+### Configure a Route
+* If you configure a route in the routing table that specifies the NAT gateway as a gateway for a specific CIDR, the NAT gateway is used.
+* In instances connected to the routing table that has set the NAT gateway as a route, if the CIDR configured in the route is the destination, the source IP of the packet is converted to the floating IP of the NAT gateway.
+* A single NAT gateway can be specified as a gateway in multiple routing tables of the same VPC.
+* An NAT gateway can also be specified as a gateway in a routing table associated with a subnet that is different from the subnet specified when setting the NAT gateway.
+* You can specify multiple NAT gateways as a gateway in a single routing table by identifying the destination CIDR.
+* If you set the NAT gateway as a gateway for a route destination CIDR other than IP Prefix 0 (/0) in the route configuration, the communication will be performed through the NAT gateway even if the instance has a floating IP configured.
 
 
-### 네트워크 ACL 설정
-한국(평촌) 리전에서 NAT 게이트웨이의 VPC에 대해서 네트워크 ACL 설정을 하는 경우에 NAT 게이트웨이에도 적용됩니다. [네트워크 ACL 설정 방법](https://docs.toast.com/ko/Network/Network%20ACL/ko/overview/)
+### Configure a Network ACL
+If you configure a network ACL for the VPC of the NAT gateway in the Korea (Pyeongchon) region, it will also be applied to the NAT gateway. [How to configure a network ACL](https://docs.toast.com/ko/Network/Network%20ACL/ko/overview/)
