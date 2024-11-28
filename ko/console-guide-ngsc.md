@@ -31,4 +31,4 @@
 
 
 ### 네트워크 ACL 설정
-NAT 게이트웨이의 VPC에 대해서 네트워크 ACL 설정을 하는 경우에 NAT 게이트웨이에도 적용됩니다. [네트워크 ACL 설정 방법](https://docs.ngsc-nhncloud.com/ko/Network/Network%20ACL/ko/overview/)
+NAT 게이트웨이의 VPC에 대해서 네트워크 ACL 설정을 하는 경우에 NAT 게이트웨이에도 적용됩니다. [네트워크 ACL 설정 방법](/Network/Network%20ACL/ko/overview/)
