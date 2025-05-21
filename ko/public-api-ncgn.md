@@ -21,33 +21,33 @@ X-Auth-Token: {tokenId}
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
 
-| 이름 | 종류 | 형식 | 필수 | 설명                                                                         |
-|---|---|---|---|----------------------------------------------------------------------------|
-| tokenId | Header | String | O | 토큰 ID                                                                      |
-| id | Query | UUID | - | 조회할 NAT 게이트웨이 ID                                                        |
+| 이름 | 종류 | 형식 | 필수 | 설명                                                                             |
+|---|---|---|---|--------------------------------------------------------------------------------|
+| tokenId | Header | String | O | 토큰 ID                                                                          |
+| id | Query | UUID | - | 조회할 NAT 게이트웨이 ID                                                               |
 | tenant_id | Query | String | - | 조회할 NAT 게이트웨이의 테넌트 ID                                                          |
 | name | Query | String | - | 조회할 NAT 게이트웨이의 이름                                                              |
 | sort_dir | Query | Enum | - | 조회할 NAT 게이트웨이의 정렬 방향<br>`sort_key`에서 지정한 필드를 기준으로 정렬<br>**asc**, **desc** 중 하나 |
 | sort_key | Query | String | - | 조회할 NAT 게이트웨이의 정렬 키<br>`sort_dir`에서 지정한 방향대로 정렬                                |
-| fields | Query | String | - | 조회할 NAT 게이트웨이의 필드 이름<br>예) `fields=id&fields=name`                             |
+| fields | Query | String | - | 조회할 NAT 게이트웨이의 필드 이름<br>예: `fields=id&fields=name`                             |
 
 #### 응답
 
-| 이름                         | 종류 | 형식 | 설명                                              |
-|----------------------------|---|---|-------------------------------------------------|
-| natgateways                | Body | Array | NAT 게이트웨이 정보 객체 목록                              |
-| natgateways.id             | Body | UUID | NAT 게이트웨이의 ID                                   |
-| natgateways.name           | Body | String | NAT 게이트웨이 이름                                    |
-| natgateways.vpc_id         | Body | UUID | NAT 게이트웨이의 VPC ID                               |
-| natgateways.subnet_id      | Body | UUID | NAT 게이트웨이의 서브넷 ID                               |
-| natgateways.port_id        | Body | UUID | NAT 게이트웨이의 포트 ID                                |
-| natgateways.floatingips_id | Body | UUID | NAT 게이트웨이의 플로팅 IP ID                            |
-| natgateways.tenant_id      | Body | String | NAT 게이트웨이의 테넌트 ID                               |
-| natgateways.project_id     | Body | String | NAT 게이트웨이의 프로젝트 ID. 테넌트 ID와 동일.                 |
-| natgateways.fixed_ip       | Body | String | NAT 게이트웨이의 고정 IP 주소                             |
-| natgateways.floating_ip    | Body | String | NAT 게이트웨이의 플로팅 IP 주소                            |
-| natgateways.create_time    | Body | String | NAT 게이트웨이 생성 시간 (UTC 기준)                       |
-| natgateways.description    | Body | String | NAT 게이트웨이 설명                                    |
+| 이름                         | 종류 | 형식 | 설명                                             |
+|----------------------------|---|---|------------------------------------------------|
+| natgateways                | Body | Array | NAT 게이트웨이 정보 객체 목록                             |
+| natgateways.id             | Body | UUID | NAT 게이트웨이의 ID                                  |
+| natgateways.name           | Body | String | NAT 게이트웨이 이름                                   |
+| natgateways.vpc_id         | Body | UUID | NAT 게이트웨이의 VPC ID                              |
+| natgateways.subnet_id      | Body | UUID | NAT 게이트웨이의 서브넷 ID                              |
+| natgateways.port_id        | Body | UUID | NAT 게이트웨이의 포트 ID                               |
+| natgateways.floatingips_id | Body | UUID | NAT 게이트웨이의 플로팅 IP ID                           |
+| natgateways.tenant_id      | Body | String | NAT 게이트웨이의 테넌트 ID                              |
+| natgateways.project_id     | Body | String | NAT 게이트웨이의 프로젝트 ID. 테넌트 ID와 동일.                |
+| natgateways.fixed_ip       | Body | String | NAT 게이트웨이의 고정 IP 주소                            |
+| natgateways.floating_ip    | Body | String | NAT 게이트웨이의 플로팅 IP 주소                           |
+| natgateways.create_time    | Body | String | NAT 게이트웨이 생성 시간(UTC 기준)                       |
+| natgateways.description    | Body | String | NAT 게이트웨이 설명                                   |
 | natgateways.status         | Body | Enum | NAT 게이트웨이 상태<br>`ACTIVE`, `BUILD`, `ERROR` 중 하나. |
 
 
@@ -90,11 +90,11 @@ X-Auth-Token: {tokenId}
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
 
-| 이름 | 종류     | 형식     | 필수 | 설명                                                                    |
-|---|--------|--------|---|-----------------------------------------------------------------------|
-| NatGatewayId | URL    | UUID   | O | NAT 게이트웨이 ID                                                          |
-| tokenId | Header | String | O | 토큰 ID                                                                 |
-| fields | Query  | String | - | 조회할 NAT 게이트웨이의 필드 이름<br>지정한 필드만 응답에 반환<br>예) `fields=id&fields=name` |
+| 이름 | 종류     | 형식     | 필수 | 설명                                                                   |
+|---|--------|--------|---|----------------------------------------------------------------------|
+| NatGatewayId | URL    | UUID   | O | NAT 게이트웨이 ID                                                         |
+| tokenId | Header | String | O | 토큰 ID                                                                |
+| fields | Query  | String | - | 조회할 NAT 게이트웨이의 필드 이름<br>지정한 필드만 응답에 반환<br>예: `fields=id&fields=name` |
 
 #### 응답
 
@@ -111,7 +111,7 @@ X-Auth-Token: {tokenId}
 | natgateway.project_id     | Body | String | NAT 게이트웨이의 프로젝트 ID. 테넌트 ID와 동일.                 |
 | natgateway.fixed_ip       | Body | String | NAT 게이트웨이의 고정 IP 주소                             |
 | natgateway.floating_ip    | Body | String | NAT 게이트웨이의 플로팅 IP 주소                            |
-| natgateway.create_time    | Body | String | NAT 게이트웨이 생성 시간 (UTC 기준)                            |
+| natgateway.create_time    | Body | String | NAT 게이트웨이 생성 시간(UTC 기준)                            |
 | natgateway.description    | Body | String | NAT 게이트웨이 설명                                    |
 | natgateway.status         | Body | Enum | NAT 게이트웨이 상태<br>`ACTIVE`, `BUILD`, `ERROR` 중 하나. |
 
@@ -199,7 +199,7 @@ X-Auth-Token: {tokenId}
 | natgateway.project_id     | Body | String | NAT 게이트웨이의 프로젝트 ID. 테넌트 ID와 동일.                 |
 | natgateway.fixed_ip       | Body | String | NAT 게이트웨이의 고정 IP 주소                             |
 | natgateway.floating_ip    | Body | String | NAT 게이트웨이의 플로팅 IP 주소                            |
-| natgateway.create_time    | Body | String | NAT 게이트웨이 생성 시간 (UTC 기준)                               |
+| natgateway.create_time    | Body | String | NAT 게이트웨이 생성 시간(UTC 기준)                               |
 | natgateway.description    | Body | String | NAT 게이트웨이 설명                                    |
 | natgateway.status         | Body | Enum | NAT 게이트웨이 상태<br>`ACTIVE`, `BUILD`, `ERROR` 중 하나. |
 
@@ -269,21 +269,21 @@ X-Auth-Token: {tokenId}
 
 
 #### 응답
-| 이름                        | 종류 | 형식 | 설명                                               |
-|---------------------------|---|---|--------------------------------------------------|
-| natgateway                | Body | Array | NAT 게이트웨이 정보 객체                                  |
-| natgateway.id             | Body | UUID | NAT 게이트웨이의 ID                                    |
-| natgateway.name           | Body | String | NAT 게이트웨이 이름                                     |
-| natgateway.vpc_id         | Body | UUID | NAT 게이트웨이의 VPC ID                                |
-| natgateway.subnet_id      | Body | UUID | NAT 게이트웨이의 서브넷 ID                                |
-| natgateway.port_id        | Body | UUID | NAT 게이트웨이의 포트 ID                                 |
-| natgateway.floatingips_id | Body | UUID | NAT 게이트웨이의 플로팅 IP ID                             |
-| natgateway.tenant_id      | Body | String | NAT 게이트웨이의 테넌트 ID                                |
-| natgateway.project_id     | Body | String | NAT 게이트웨이의 프로젝트 ID. 테넌트 ID와 동일.                  |
-| natgateway.fixed_ip       | Body | String | NAT 게이트웨이의 고정 IP 주소                              |
-| natgateway.floating_ip    | Body | String | NAT 게이트웨이의 플로팅 IP 주소                             |
-| natgateway.create_time    | Body | String | NAT 게이트웨이 생성 시간 (UTC 기준)                         |
-| natgateway.description    | Body | String | NAT 게이트웨이 설명                                     |
+| 이름                        | 종류 | 형식 | 설명                                              |
+|---------------------------|---|---|-------------------------------------------------|
+| natgateway                | Body | Array | NAT 게이트웨이 정보 객체                                 |
+| natgateway.id             | Body | UUID | NAT 게이트웨이의 ID                                   |
+| natgateway.name           | Body | String | NAT 게이트웨이 이름                                    |
+| natgateway.vpc_id         | Body | UUID | NAT 게이트웨이의 VPC ID                               |
+| natgateway.subnet_id      | Body | UUID | NAT 게이트웨이의 서브넷 ID                               |
+| natgateway.port_id        | Body | UUID | NAT 게이트웨이의 포트 ID                                |
+| natgateway.floatingips_id | Body | UUID | NAT 게이트웨이의 플로팅 IP ID                            |
+| natgateway.tenant_id      | Body | String | NAT 게이트웨이의 테넌트 ID                               |
+| natgateway.project_id     | Body | String | NAT 게이트웨이의 프로젝트 ID. 테넌트 ID와 동일.                 |
+| natgateway.fixed_ip       | Body | String | NAT 게이트웨이의 고정 IP 주소                             |
+| natgateway.floating_ip    | Body | String | NAT 게이트웨이의 플로팅 IP 주소                            |
+| natgateway.create_time    | Body | String | NAT 게이트웨이 생성 시간(UTC 기준)                         |
+| natgateway.description    | Body | String | NAT 게이트웨이 설명                                    |
 | natgateway.status         | Body | Enum | NAT 게이트웨이 상태<br>`ACTIVE`, `BUILD`, `ERROR` 중 하나. |
 
 
